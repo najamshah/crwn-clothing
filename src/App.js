@@ -14,7 +14,7 @@ class App extends React.Component{
 unsubscribeFromAuth = null;
 
 componentDidMount() {
-  console.log(this.props);
+  //console.log(this.props);
   const {setCurrentUser} = this.props;
   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
     if (userAuth) {
@@ -27,21 +27,21 @@ componentDidMount() {
             ...snapShot.data()
           }
         });
-        console.log(this.props.currentUser); 
+        //console.log(this.props.currentUser); 
       });
     }else{
      setCurrentUser(userAuth);
     }
-    console.log('11');
-     console.log(this.props.currentUser); 
+    //console.log('11');
+     //console.log(this.props.currentUser); 
   });
 }
 componentWillUnmount(){
   this.unsubscribeFromAuth();
 }
 componentDidUpdate(){
-  console.log('updated');
-     console.log(this.props.currentUser);
+  //console.log('updated');
+    // console.log(this.props.currentUser);
 }
 render(){
   //console.log(this.props.currentUser)
