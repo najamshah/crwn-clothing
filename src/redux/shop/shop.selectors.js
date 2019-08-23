@@ -17,10 +17,19 @@ export const selectShopItems = createSelector(
 
 );
 
-export const selectCollection = collectionUrlParam => createSelector(
+export const selectCollectionsForPreview = createSelector(
+    [selectShopItems],
+    collections => Object.keys(collections).map(key => collections[key])
+
+);
+
+/* export const selectCollection = collectionUrlParam => createSelector(
     [selectShopItems],
     collections => collections.find( collection=> collection.id === COLLECTION_ID_MAP[collectionUrlParam])
 )
-
-
+ */
+export const selectCollection = collectionUrlParam => createSelector(
+    [selectShopItems],
+    collections => collections[collectionUrlParam]
+)
 
